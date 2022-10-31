@@ -14,20 +14,26 @@
     ?>
         <div class="container" style="margin-top: 15px;">
             <div class="row col-xs-8" style="text-align:center">
-                <h1>Course List</h1>
-                <?php
+            <?php
                 if (isset($error_msg) && !empty($error_msg)) {
                     echo "<div class='alert alert-danger'>$error_msg</div>";
                 }
             ?>
+                <h1>Welcome, <?php echo $name ?> !</h1>
             </div>
             <hr>
-            <h4 style="text-align: center"> </h4>
             <div class="row">
-                <div class="col-xs-8 mx-auto">  
-                    <p> 
-                        <?php
-                            if (empty($courses)){
+                <div style="border:1px solid black" class="col-md-4">  
+                    <h3>Info:</h3>
+                    <p>Year: <?php echo $schoolYear ?>  </p>
+                    <p>Major: <?php echo $major ?>  </p>
+                    <p>Minor: <?php echo $minor ?>  </p>
+                    <p>Student ID: <?php echo $studentId ?>  </p>
+                </div>
+                <div style="text-align: left" class="col-md-8">  
+                    <h2 style="text-align: center" >Current Courses</h2>
+                    <?php
+                            if (empty($studentCourses)){
                                 echo "<b>There are no courses yet. Add some.<b>";
                             }
                             else{
@@ -36,34 +42,25 @@
                                   <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Course ID</th>
-                                    <th scope="col">Subject</th>
-                                    <th scope="col">Professor</th>
-                                    <th scope="col">Credit Hours</th>
-                                    <th scope="col">Meeting Days</th>
-                                    <th scope="col">Start Time</th>
-                                    <th scope="col">Location</th>';
-
-                                echo '<th scope="col">Add</th>';
-
+                                    <th scope="col">Semester ID</th>
+                                    <th style="width: 5%"scope="col">Remove</th>';
                                 echo '    
                                   </tr>
                                 </thead>
                                 <tbody>';}
                                 $i = 1;
-                                foreach ($courses as $key=>$value){
+                                foreach ($studentCourses as $key=>$value){
                                     echo '<tr>
                                     <th scope="row">' . $i . '</th>
                                     <td>'. $value["courseId"]. '</td>
-                                    <td>'. $value["subject"].'</td>
-                                    <td>'. $value["professor"].'</td>
-                                    <td>'. $value["creditHours"].'</td>
-                                    <td>'. $value["days"].'</td>
-                                    <td>'. $value["time"].'</td>
-                                    <td>'. $value["location"].'</td>
+                                    <td>'. $value["semesterId"].'</td>
+           
                                     <td>
-                                        <form action="?command=addCourseFromAllCourses" method="post">
-                                            <input type="submit" value="add" name="action" class="btn btn-primary" title="Add Course" />      
+                                        <form action="?command=removeCourseFromProfile" method="post">
+                                            <input type="submit" value="X" name="action" class="btn btn-danger" title="Remove Course" />   
+                                            <input type="hidden" name="studentId" id="studentId" value='.$studentId.'/>   
                                             <input type="hidden" name="courseId" id="courseId" value='.$value["courseId"] .'/>
+                                            <input type="hidden" name="semesterId" id="semesterId" value='.$value["semesterId"] .'/>
                                         </form>
                                     </td>
                                     </tr>';
@@ -72,9 +69,6 @@
                                 echo '</tbody>
                                 </table>';     
                         ?>
-
-                      </p>
-                
                 </div>
             </div>
         </div><br><br><br>

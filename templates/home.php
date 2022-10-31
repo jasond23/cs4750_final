@@ -21,7 +21,9 @@
     <?php 
         include "templates/navbar.php";
     ?>
-    <h1>TODO: add CONTENT HERE</h1>
+    <h1>TODO: add home page content here</h1>
+    <h5>Features done: Login / signup, viewing courses, adding courses, removing courses, viewing profile</h5>
+    <p>You need to add some data for courses, look at sqldata.txt in the repo and run that stuff in the phpmyadmin console</p>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php 
         include "templates/footer.php";

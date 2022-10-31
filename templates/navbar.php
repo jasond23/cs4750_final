@@ -32,7 +32,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="?command=profile"
-                >Profile?</a
+                >Profile</a
               >
             </li>
           </ul>

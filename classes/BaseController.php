@@ -24,6 +24,16 @@ class BaseController {
             case "allCourses":
                 $this->allCourses();
                 break;
+            case "addCourseFromAllCourses":
+                $this->addCourseFromAllCourses();
+                //$this->allCourses();
+                break;
+            case "removeCourseFromProfile":
+                $this->removeCourseFromProfile();
+                break;
+            case "profile":
+                $this->profile();
+                break;
             case "home":
             default:
                 $this->home();
@@ -146,13 +156,75 @@ class BaseController {
         }
     }
 
-    private function allCourses(){
+    private function allCourses($error = ""){
         # query all the courses
+        $error_msg = $error;
         $courses = $this->db->query("SELECT * FROM course");
         include "templates/allCourses.php";
     }
 
+    private function addCourseFromAllCourses(){
+        $semesterId = "12345"; # right now this is hard coded. TODO: configure semester Ids
+        $error_msg ="";
+        # check if user is logged in. If they aren't send them to login page
+        if (!isset($_SESSION["studentId"]) || empty($_SESSION["studentId"])) {
+            header("Location: ?command=login");
+            return;
+        }
 
-    
+        # echo rtrim($_POST["courseId"],"/");
+
+        # check if the courseId is set
+        if (isset($_POST["courseId"]) && !empty($_POST["courseId"])) {
+
+            # check if student has already added this course
+            $data = $this->db->query("SELECT * FROM enrolled WHERE courseId = ? AND studentId = ?","ss",rtrim($_POST["courseId"],"/"), $_SESSION["studentId"]);
+            # check if we have not added the course yet
+            if (empty($data)){
+                $insert = $this->db->query("INSERT INTO enrolled (studentId, semesterId, courseId) values (?, ?, ?);", 
+                "sss", $_SESSION["studentId"], $semesterId, rtrim($_POST["courseId"],"/"));
+            } else {
+                $error_msg = "Already added this course";
+            }
+        } else {
+            $error_msg = "Error retrieving course ID";
+        }
+
+        $this->allCourses($error_msg);
+    }
+
+    private function profile($error = ""){
+        $error_msg = $error;
+        if (isset($_SESSION["studentId"]) && !empty($_SESSION["studentId"])) {
+            $studentInfo = $this->db->query("SELECT * FROM student WHERE studentId = ?", "s", $_SESSION["studentId"]);
+            if ($studentInfo === false) {
+                $error_msg = "Error checking for student";
+            }
+
+            $studentCourses = $this->db->query("SELECT * FROM enrolled WHERE studentId= ?","s",$_SESSION["studentId"]);
+            if ($studentCourses === false){
+                $error_msg = "Error checking for enrolled courses";
+            }
+
+        }
+
+        $name = $studentInfo[0]["name"];
+        $schoolYear = $studentInfo[0]["schoolYear"];
+        $major =  $studentInfo[0]["major"];
+        $minor = $studentInfo[0]["minor"];
+        $studentId = $studentInfo[0]["studentId"];
+
+        include "templates/profile.php";
+    }
+
+    private function removeCourseFromProfile(){
+        $error_msg = "";
+        $delete = $this->db->query("DELETE FROM enrolled WHERE studentId = ? AND courseId = ? AND semesterId = ?","sss",
+            rtrim($_POST["studentId"],"/"),rtrim($_POST["courseId"],"/"), rtrim($_POST["semesterId"],"/"));
+        if ($delete === false) {
+            $error_msg = "Error deleting from enrolled";
+        }
+        $this->profile($error_msg);
+    }
 }
     
