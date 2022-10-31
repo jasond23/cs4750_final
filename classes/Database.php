@@ -9,8 +9,9 @@ class Database {
                                    Config::$db["pass"], Config::$db["database"]);
     }
 
-
+    // https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
     // this query function protects against SQL injection (i think)
+    
     public function query($query, $bparam=null, ...$params) {
         $stmt = $this->mysqli->prepare($query);
         if ($bparam != null)
