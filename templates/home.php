@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>App name here</title>
+    <title>UVA Course Scheduler</title>
+    <link rel="icon" type="image/x-icon" href="templates/school-image.png">
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -21,10 +22,24 @@
     <?php 
         include "templates/navbar.php";
     ?>
-    <h1>TODO: add home page content here</h1>
-    <h5>Features done: Login / signup, viewing courses, adding courses, removing courses, viewing profile</h5>
-    <p>You need to add some data for courses, look at sqldata.txt in the repo and run that stuff in the phpmyadmin console</p>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-xs-1" align="center">
+      <h1>UVA Course Scheduler</h1>
+      <ul style="list-style: none; margin: 15px 0;">
+        <li class="nav-item"><a class="btn btn-default" href="?command=home">
+          <img src="templates/home-button.webp" width="50" /> Home
+        </a></li>
+        <li class="nav-item"><a class="btn btn-default" href="?command=schedule">
+          <img src="templates/schedule-image.png" width="80" /> Schedule
+        </a></li>
+        <li class="nav-item"><a class="btn btn-default" href="?command=allCourses">
+          <img src="templates/courses-image.png" width="50" /> Courses
+        </a></li>
+        <li class="nav-item"><a class="btn btn-default" href="?command=profile">
+          <img src="templates/profile-image.png" width="50" /> Profile
+        </a></li>
+      </ul>
+      <br><br><br><br>
+    </div>
     <?php 
         include "templates/footer.php";
     ?>

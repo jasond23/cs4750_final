@@ -1,7 +1,8 @@
 <!-- This is the navbar. Do an "include" in the body to make the navbar appear-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%;height:4rem ;">
       <div class="container-xl">
-        <a class="navbar-brand" href="#">Name Here</a>
+        <a href="#"><img src="templates/school-image.jpg" style="max-width: 25%;"></a> 
+        <a class="navbar-brand" href="#">UVA Course Scheduler</a>
         <button
           class="navbar-toggler"
           type="button"

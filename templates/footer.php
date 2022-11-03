@@ -1,24 +1,21 @@
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top bg-dark mt-auto"
         style="width: 100%; height: 5rem; position:relative">
-    <p class="col-md-4 mb-0 text-white">&copy;COPYRIGHT HERE</p>
+    <p class="col-md-4 mb-0 text-white">&copy;UVA CS 4750 F22</p>
     <ul class="nav col-md-8 justify-content-end">
       <li class="nav-item">
         <a href="?command=home" class="nav-link px-2 text-white">Home</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-white">Put</a>
+        <a href="#" class="nav-link px-2 text-white">Jason Deng</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-white">Anything</a>
+        <a href="#" class="nav-link px-2 text-white">Zach Lieberman</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-white">In these cells</a>
+        <a href="#" class="nav-link px-2 text-white">Celeste Bunker</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-white">OR</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-white">just remove them</a>
+        <a href="#" class="nav-link px-2 text-white">Ethan Buckner</a>
       </li>
     </ul>
   </footer>

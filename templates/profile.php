@@ -23,12 +23,28 @@
             </div>
             <hr>
             <div class="row">
-                <div style="border:1px solid black" class="col-md-4">  
-                    <h3>Info:</h3>
-                    <p>Year: <?php echo $schoolYear ?>  </p>
-                    <p>Major: <?php echo $major ?>  </p>
-                    <p>Minor: <?php echo $minor ?>  </p>
-                    <p>Student ID: <?php echo $studentId ?>  </p>
+                <div class="col-md-4">
+                    <h3 align="center">Profile Information</h3>
+                    <table class="table table-bordered table-dark">
+                        <thead>
+                        <tr>
+                            <th>School Year</th>
+                            <td> <?php echo $schoolYear ?> </td>
+                        </tr>
+                        <tr>
+                            <th>Major</th>
+                            <td> <?php echo $major ?> </td>
+                        </tr>
+                        <tr>
+                            <th>Minor</th>
+                            <td>  <?php echo $minor ?> </td>
+                        </tr>
+                        <tr>
+                            <th>Student Id</th>
+                            <td>  <?php echo $studentId ?> </td>
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
                 <div style="text-align: left" class="col-md-8">  
                     <h2 style="text-align: center" >Current Courses</h2>
