@@ -145,8 +145,7 @@ class BaseController {
     }
 
     private function destroySession() {   
-        unset($_SESSION['email']);
-        unset($_SESSION['name']);       
+        unset($_SESSION['studentId']);   
         session_destroy();
         session_start();
         if(isset($_SERVER['HTTP_REFERER'])) {
@@ -206,6 +205,8 @@ class BaseController {
                 $error_msg = "Error checking for enrolled courses";
             }
 
+        } else {
+            header("Location: ?command=login");
         }
 
         $name = $studentInfo[0]["name"];
