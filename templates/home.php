@@ -7,6 +7,30 @@
     <title>UVA Course Scheduler</title>
     <link rel="icon" type="image/x-icon" href="templates/school-image.png">
 
+    <style>
+      body {
+        background-image: url('templates/classroom-image.jpg');
+        background-repeat: no-repeat;
+        background-size: 1500px 500px;
+        background-color: rgba(0, 0, 0, 1);
+        z-index: 0;
+      }
+
+      ul.a {
+        list-style: square;
+        background: rgba(236, 235, 236, 0.6);
+        height: 250px;
+        width: 500px;
+      }
+
+      h1.a {
+        list-style: square;
+        background: rgba(236, 235, 236, 0.6);
+        height: 100px;
+        width: 500px;
+      }
+    </style>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,8 +47,8 @@
         include "templates/navbar.php";
     ?>
     <div class="col-xs-1" align="center">
-      <h1>UVA Course Scheduler</h1>
-      <ul style="list-style: none; margin: 15px 0;">
+      <h1 class="a">UVA Course Scheduler</h1>
+      <ul class="a" style="list-style: none;">
         <li class="nav-item"><a class="btn btn-default" href="?command=home">
           <img src="templates/home-button.webp" width="50" /> Home
         </a></li>
@@ -38,9 +62,10 @@
           <img src="templates/profile-image.png" width="50" /> Profile
         </a></li>
       </ul>
-      <br><br><br><br>
+      <br><br>
     </div>
     <?php 
         include "templates/footer.php";
     ?>
-</body>
+  </body>
+</html>

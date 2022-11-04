@@ -18,6 +18,14 @@ body {
   background-size: cover;
 }
 
+.home {
+  background: url(/templates/classroom-image.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
 /* Text Align */
 .text-c {
   text-align: center;
