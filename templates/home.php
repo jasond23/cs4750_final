@@ -29,6 +29,16 @@
         height: 100px;
         width: 500px;
       }
+
+      .w {
+        list-style: square;
+        background: rgba(236, 235, 236, 0.6);
+        height: 430px;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
     </style>
 
     <link
@@ -46,7 +56,7 @@
     <?php 
         include "templates/navbar.php";
     ?>
-    <div class="col-xs-1" align="center">
+    <div class="w" align="center">
       <h1 class="a">UVA Course Scheduler</h1>
       <ul class="a" style="list-style: none;">
         <li class="nav-item"><a class="btn btn-default" href="?command=home">
