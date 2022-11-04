@@ -32,7 +32,7 @@
 
       .w {
         list-style: square;
-        background: rgba(236, 235, 236, 0.6);
+        background: rgba(236, 235, 236, 0.8);
         height: 430px;
         width: 500px;
         margin-left: auto;
@@ -57,8 +57,8 @@
         include "templates/navbar.php";
     ?>
     <div class="w" align="center">
-      <h1 class="a">UVA Course Scheduler</h1>
-      <ul class="a" style="list-style: none;">
+      <h1>UVA Course Scheduler</h1>
+      <ul style="list-style: none;">
         <li class="nav-item"><a class="btn btn-default" href="?command=home">
           <img src="templates/home-button.webp" width="50" /> Home
         </a></li>
