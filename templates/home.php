@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UVA Course Scheduler</title>
-    <link rel="icon" type="image/x-icon" href="templates/school-image.png">
+    <link rel="icon" type="image/x-icon" href="res/school-image.png">
 
     <style>
       body {
-        background-image: url('templates/classroom-image.jpg');
+        background-image: url('res/classroom-image.jpg');
         background-repeat: no-repeat;
         background-size: 1500px 500px;
         background-color: rgba(0, 0, 0, 1);
@@ -60,16 +60,16 @@
       <h1>UVA Course Scheduler</h1>
       <ul style="list-style: none;">
         <li class="nav-item"><a class="btn btn-default" href="?command=home">
-          <img src="templates/home-button.webp" width="50" /> Home
+          <img src="res/home-button.webp" width="50" /> Home
         </a></li>
         <li class="nav-item"><a class="btn btn-default" href="?command=schedule">
-          <img src="templates/schedule-image.png" width="80" /> Schedule
+          <img src="res/schedule-image.png" width="80" /> Schedule
         </a></li>
         <li class="nav-item"><a class="btn btn-default" href="?command=allCourses">
-          <img src="templates/courses-image.png" width="50" /> Courses
+          <img src="res/courses-image.png" width="50" /> Courses
         </a></li>
         <li class="nav-item"><a class="btn btn-default" href="?command=profile">
-          <img src="templates/profile-image.png" width="50" /> Profile
+          <img src="res/profile-image.png" width="50" /> Profile
         </a></li>
       </ul>
       <br><br>

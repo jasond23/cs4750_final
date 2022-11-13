@@ -158,8 +158,16 @@ class BaseController {
     private function allCourses($error = ""){
         # query all the courses
         $error_msg = $error;
-        $courses = $this->db->query("SELECT * FROM course");
+        // echo $_GET["subject"];
+        if (isset(($_GET["subject"])) && $_GET["subject"] != "all"){
+            $sub = $_GET["subject"];
+            $courses = $this->db->query("SELECT * FROM course WHERE subject = ? ORDER BY courseNumber","s",($_GET["subject"]));
+        } else {
+            $courses = $this->db->query("SELECT * FROM course ORDER BY subject, courseNumber");
+            $sub = "all";
+        }
         include "templates/allCourses.php";
+        // include "templates/test.php";
     }
 
     private function addCourseFromAllCourses(){
