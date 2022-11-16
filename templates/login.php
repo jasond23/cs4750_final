@@ -23,7 +23,7 @@
         ?>
         <div class="login-container text-c animated flipInX">
             <?php
-                if (!empty($error_msg)) {
+                if (!empty($error_msg) && isset($error_msg)) {
                     echo "<div class='alert alert-danger'>$error_msg</div>";
                 }
             ?>

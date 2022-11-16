@@ -12,8 +12,8 @@ function createNewStudentTable(){
     $db->query("CREATE TABLE student
                     (name TEXT,
                     schoolYear INT(1),
-                    major VARCHAR(50),
-                    minor VARCHAR(50),
+                    major TEXT,
+                    minor TEXT,
                     studentId VARCHAR(7) NOT NULL,
                     password TEXT NOT NULL,
                     PRIMARY KEY(studentId),
@@ -101,13 +101,13 @@ function addAllCoursesFromAPI($department){
 
 // updateStudentTable();
 // updateCoursesTable();
-//createNewStudentTable();
-createNewCourseTable();
-addAllCoursesFromAPI("CS");
-addAllCoursesFromAPI("APMA");
-addAllCoursesFromAPI("DS");
-addAllCoursesFromAPI("PSYC");
-addAllCoursesFromAPI("STAT");
-addAllCoursesFromAPI("STS");
+// createNewStudentTable();
+// createNewCourseTable();
+// addAllCoursesFromAPI("CS");
+// addAllCoursesFromAPI("APMA");
+// addAllCoursesFromAPI("DS");
+// addAllCoursesFromAPI("PSYC");
+// addAllCoursesFromAPI("STAT");
+// addAllCoursesFromAPI("STS");
 
 // some errors but whatever i dont care, the courses just won't show up

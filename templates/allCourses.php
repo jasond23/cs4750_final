@@ -19,7 +19,9 @@
                 <?php
                 if (isset($error_msg) && !empty($error_msg)) {
                     echo "<div class='alert alert-danger'>$error_msg</div>";
-                }
+                } elseif (isset($success_msg) && !empty($success_msg)){
+                    echo "<div class='alert alert-success'>$success_msg</div>";
+                } 
             ?>
             </div>
             <hr>
@@ -78,6 +80,7 @@
                                         <form action="?command=addCourseFromAllCourses" method="post">
                                             <input type="submit" value="add" name="action" class="btn btn-primary" title="Add Course" />      
                                             <input type="hidden" name="courseId" id="courseId" value='.$value["courseId"] .'/>
+                                            <input type="hidden" name="courseDept" id="courseDept" value='. $sub .'/>
                                         </form>
                                     </td>
                                     </tr>';
