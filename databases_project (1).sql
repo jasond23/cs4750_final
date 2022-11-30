@@ -412,6 +412,10 @@ INSERT INTO `student` (`name`, `schoolYear`, `major`, `minor`, `studentId`, `pas
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`courseId`);
+  
+ALTER TABLE course
+  ADD CONSTRAINT chk_course
+  CHECK (creditHours > 0 AND creditHours <= 12);
 
 --
 -- Indexes for table `enrolled`
@@ -460,6 +464,12 @@ ALTER TABLE `semestercourses`
 ALTER TABLE `student`
   ADD PRIMARY KEY (`studentId`);
 COMMIT;
+
+CREATE PROCEDURE acceptFriendRequest @studentId VARCHAR(7), @senderId VARCHAR(7) AS
+(
+DELETE FROM Pending_Requests WHERE studentId = @studentId AND senderId = @senderId
+INSERT INTO Friends_With (studentId, friendId) VALUES (@studentId, @senderId), (@senderId, @studentId)
+)
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
